@@ -39,6 +39,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
+      "datasource": "Delhi SLDC",
       "description": "The number of power plants located within Delhi that are tracked by the Delhi SLDC.",
       "format": "none",
       "gauge": {
@@ -146,6 +147,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
+      "datasource": "Delhi SLDC",
       "description": "The number of power plants located elsewhere in India that supply electricity to the Delhi SLDC.",
       "format": "none",
       "gauge": {
@@ -264,6 +266,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
+      "datasource": "Delhi SLDC",
       "description": "The number of points for the export of electricity from Delhi.",
       "format": "none",
       "gauge": {
@@ -371,6 +374,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
+      "datasource": "Delhi SLDC",
       "description": "The number of points for the import of electricity to Delhi.",
       "format": "none",
       "gauge": {
@@ -489,6 +493,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
+      "datasource": "Delhi SLDC",
       "description": "The number of electricity distribution/consumption utilities being tracked by the Delhi SLDC.",
       "format": "none",
       "gauge": {
@@ -596,6 +601,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
+      "datasource": "Delhi SLDC",
       "description": "The number of substations within Delhi that are tracked by the Delhi SLDC.",
       "format": "none",
       "gauge": {
@@ -705,6 +711,7 @@
     },
     {
       "cacheTimeout": null,
+      "datasource": "Delhi SLDC",
       "gridPos": {
         "h": 8,
         "w": 8,
@@ -808,6 +815,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
+      "datasource": "Delhi SLDC",
       "decimals": 2,
       "fill": 1,
       "fillGradient": 0,
