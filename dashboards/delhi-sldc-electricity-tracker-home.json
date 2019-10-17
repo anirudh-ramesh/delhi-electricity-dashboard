@@ -712,7 +712,12 @@
         "y": 16
       },
       "id": 15,
-      "links": [],
+      "links": [
+        {
+          "title": "Grid Frequency - Time",
+          "url": "/d/4nRJoTTZk/grid-frequency-time"
+        }
+      ],
       "options": {
         "fieldOptions": {
           "calcs": [
@@ -825,6 +830,12 @@
       },
       "lines": true,
       "linewidth": 1,
+      "links": [
+        {
+          "title": "Grid Frequency - Time",
+          "url": "/d/4nRJoTTZk/grid-frequency-time"
+        }
+      ],
       "nullPointMode": "null",
       "options": {
         "dataLinks": []
