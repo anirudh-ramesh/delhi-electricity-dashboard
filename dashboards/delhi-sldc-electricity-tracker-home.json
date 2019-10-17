@@ -624,7 +624,12 @@
       },
       "id": 5,
       "interval": null,
-      "links": [],
+      "links": [
+        {
+          "title": "Substations' Load - Time",
+          "url": "/d/MX8MYooWk/substations-load-time"
+        }
+      ],
       "mappingType": 1,
       "mappingTypes": [
         {
