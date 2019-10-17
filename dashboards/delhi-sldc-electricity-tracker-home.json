@@ -1017,7 +1017,11 @@
   "schemaVersion": 19,
   "style": "dark",
   "tags": [
-    "home"
+    "home",
+    "SLDC",
+    "delhi",
+    "electricity",
+    "electricity grid"
   ],
   "templating": {
     "list": []
