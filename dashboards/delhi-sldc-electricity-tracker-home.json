@@ -511,7 +511,12 @@
       },
       "id": 2,
       "interval": null,
-      "links": [],
+      "links": [
+        {
+          "title": "Electricity Distribution Companies' Load-Time",
+          "url": "/d/IyZ-0ToWz/electricity-distribution-companies-load-time"
+        }
+      ],
       "mappingType": 1,
       "mappingTypes": [
         {
