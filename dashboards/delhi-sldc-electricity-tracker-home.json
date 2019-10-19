@@ -284,7 +284,12 @@
       },
       "id": 3,
       "interval": null,
-      "links": [],
+      "links": [
+        {
+          "title": "Export Points' Load - Time",
+          "url": "/d/mxvpyoTZz/electricity-export-points-power-time"
+        }
+      ],
       "mappingType": 1,
       "mappingTypes": [
         {
