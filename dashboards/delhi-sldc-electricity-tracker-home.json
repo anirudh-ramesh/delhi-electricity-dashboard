@@ -57,7 +57,12 @@
       },
       "id": 6,
       "interval": null,
-      "links": [],
+      "links": [
+        {
+          "title": "State Power Plants' Supply - Time",
+          "url": "/d/-7f-yoTWz/state-power-plants-supply-time"
+        }
+      ],
       "mappingType": 1,
       "mappingTypes": [
         {
