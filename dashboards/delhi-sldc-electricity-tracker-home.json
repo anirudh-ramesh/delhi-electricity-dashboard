@@ -392,7 +392,12 @@
       },
       "id": 4,
       "interval": null,
-      "links": [],
+      "links": [
+        {
+          "title": "Import Points' Load - Time",
+          "url": "/d/Bmh1yooWz/electricity-import-points-power-time"
+        }
+      ],
       "mappingType": 1,
       "mappingTypes": [
         {
