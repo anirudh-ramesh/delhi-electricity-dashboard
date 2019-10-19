@@ -70,8 +70,8 @@
           "format": "time_series",
           "group": [],
           "metricColumn": "none",
-          "rawQuery": false,
-          "rawSql": "SELECT\n  $__time(time_column),\n  value1\nFROM\n  metric_table\nWHERE\n  $__timeFilter(time_column)\n",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  round_minutes(MIN(\"timestamp\"), 5) AS \"time\",\n  ROUND(CAST(AVG(power) AS NUMERIC), 2)\nFROM discoms\nWHERE\n  $__timeFilter(\"timestamp\") AND\n  \"unitNumber\" = '$serialNumber_meta_discoms'\nGROUP BY\n  DATE_PART('YEAR', \"timestamp\"),\n  DATE_PART('MONTH', \"timestamp\"),\n  DATE_PART('DAY', \"timestamp\"),\n  DATE_PART('HOUR', \"timestamp\"),\n  FLOOR(DATE_PART('MINUTE', \"timestamp\") / $averaging)\nORDER BY 1",
           "refId": "A",
           "select": [
             [
