@@ -104,7 +104,7 @@
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "SELECT\n  COUNT(\"serialNumber\")\nFROM\n  public.meta_plants_state;",
+          "rawSql": "SELECT\n  COUNT(\"serialNumber\")\nFROM\n  metadata.plants_state;",
           "refId": "A",
           "select": [
             [
@@ -217,7 +217,7 @@
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "SELECT\n  COUNT(\"serialNumber\")\nFROM\n  public.meta_plants_centre;",
+          "rawSql": "SELECT\n  COUNT(\"serialNumber\")\nFROM\n  metadata.plants_centre;",
           "refId": "A",
           "select": [
             [
@@ -341,7 +341,7 @@
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "SELECT\n  COUNT(\"serialNumber\")\nFROM\n  public.meta_energy_export;",
+          "rawSql": "SELECT\n  COUNT(\"serialNumber\")\nFROM\n  metadata.energy_export;",
           "refId": "A",
           "select": [
             [
@@ -454,7 +454,7 @@
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "SELECT\n  COUNT(\"serialNumber\")\nFROM\n  public.meta_energy_import;",
+          "rawSql": "SELECT\n  COUNT(\"serialNumber\")\nFROM\n  metadata.energy_import;",
           "refId": "A",
           "select": [
             [
@@ -578,7 +578,7 @@
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "SELECT\n  COUNT(\"serialNumber\")\nFROM\n  public.meta_discoms;",
+          "rawSql": "SELECT\n  COUNT(\"serialNumber\")\nFROM\n  metadata.discoms;",
           "refId": "A",
           "select": [
             [
@@ -691,7 +691,7 @@
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "SELECT\n  COUNT(\"serialNumber\")\nFROM\n  public.meta_substations;",
+          "rawSql": "SELECT\n  COUNT(\"serialNumber\")\nFROM\n  metadata.substations;",
           "refId": "A",
           "select": [
             [
@@ -811,7 +811,7 @@
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "SELECT\n  \"timestamp\" AS \"time\",\n  frequency\nFROM frequency\nWHERE\n  $__timeFilter(\"timestamp\")\nORDER BY 1 DESC\nLIMIT 1",
+          "rawSql": "SELECT\n  \"timestamp\" AS \"time\",\n  frequency\nFROM edata.frequency\nWHERE\n  $__timeFilter(\"timestamp\")\nORDER BY 1 DESC\nLIMIT 1",
           "refId": "A",
           "select": [
             [
@@ -891,8 +891,8 @@
           "format": "time_series",
           "group": [],
           "metricColumn": "none",
-          "rawQuery": false,
-          "rawSql": "SELECT\n  $__time(time_column),\n  value1\nFROM\n  metric_table\nWHERE\n  $__timeFilter(time_column)\n",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  \"timestamp\" AS \"time\",\n  frequency\nFROM edata.frequency\nWHERE\n  $__timeFilter(\"timestamp\")\nORDER BY 1",
           "refId": "A",
           "select": [
             [
