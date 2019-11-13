@@ -72,7 +72,7 @@
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "SELECT\n  public.round_minutes(MIN(\"timestamp\"), 5) AS \"time\",\n  ROUND(CAST(AVG(power) AS NUMERIC), 2)\nFROM edata.substations\nWHERE\n  $__timeFilter(\"timestamp\") AND\n  \"unitNumber\" = '$serialNumber_meta_substations'\nGROUP BY\n  DATE_PART('YEAR', \"timestamp\"),\n  DATE_PART('MONTH', \"timestamp\"),\n  DATE_PART('DAY', \"timestamp\"),\n  DATE_PART('HOUR', \"timestamp\"),\n  FLOOR(DATE_PART('MINUTE', \"timestamp\") / $averaging)\nORDER BY 1",
+          "rawSql": "SELECT\n  public.round_minutes(MIN(\"timestamp\"), 5) AS \"time\",\n  ROUND(CAST(AVG(power) AS NUMERIC), 2) AS \"Power\"\nFROM edata.substations\nWHERE\n  $__timeFilter(\"timestamp\") AND\n  \"unitNumber\" = '$serialNumber_meta_substations'\nGROUP BY\n  DATE_PART('YEAR', \"timestamp\"),\n  DATE_PART('MONTH', \"timestamp\"),\n  DATE_PART('DAY', \"timestamp\"),\n  DATE_PART('HOUR', \"timestamp\"),\n  FLOOR(DATE_PART('MINUTE', \"timestamp\") / $averaging)\nORDER BY 1",
           "refId": "A",
           "select": [
             [
