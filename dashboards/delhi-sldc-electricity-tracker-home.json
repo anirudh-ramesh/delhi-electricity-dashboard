@@ -363,7 +363,7 @@
         "ymax": null,
         "ymin": null
       },
-      "tableColumn": "count",
+      "tableColumn": "",
       "targets": [
         {
           "format": "table",
@@ -476,7 +476,7 @@
         "ymax": null,
         "ymin": null
       },
-      "tableColumn": "count",
+      "tableColumn": "",
       "targets": [
         {
           "format": "table",
@@ -601,7 +601,7 @@
         "ymax": null,
         "ymin": null
       },
-      "tableColumn": "count",
+      "tableColumn": "",
       "targets": [
         {
           "format": "table",
@@ -714,7 +714,7 @@
         "ymax": null,
         "ymin": null
       },
-      "tableColumn": "count",
+      "tableColumn": "",
       "targets": [
         {
           "format": "table",
@@ -839,7 +839,7 @@
         "ymax": null,
         "ymin": null
       },
-      "tableColumn": "count",
+      "tableColumn": "",
       "targets": [
         {
           "format": "table",
@@ -952,7 +952,7 @@
         "ymax": null,
         "ymin": null
       },
-      "tableColumn": "count",
+      "tableColumn": "",
       "targets": [
         {
           "format": "table",
