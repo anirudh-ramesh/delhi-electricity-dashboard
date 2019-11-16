@@ -18,6 +18,7 @@
   "links": [],
   "panels": [
     {
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -282,6 +283,7 @@
       }
     },
     {
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -519,6 +521,7 @@
       "valueName": "avg"
     },
     {
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -756,6 +759,7 @@
       "valueName": "avg"
     },
     {
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -993,6 +997,7 @@
       "valueName": "avg"
     },
     {
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
