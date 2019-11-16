@@ -1161,7 +1161,7 @@
       "yaxes": [
         {
           "decimals": 2,
-          "format": "kwatt",
+          "format": "megwatt",
           "label": "Load",
           "logBase": 1,
           "max": null,
