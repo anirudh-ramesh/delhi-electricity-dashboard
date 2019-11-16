@@ -144,6 +144,7 @@
         "x": 8,
         "y": 1
       },
+      "hiddenSeries": false,
       "id": 13,
       "legend": {
         "alignAsTable": true,
@@ -1087,6 +1088,7 @@
         "x": 8,
         "y": 25
       },
+      "hiddenSeries": false,
       "id": 23,
       "legend": {
         "alignAsTable": true,
