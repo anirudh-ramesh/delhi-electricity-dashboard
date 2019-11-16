@@ -94,7 +94,7 @@
         "showThresholdLabels": true,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "6.3.5",
+      "pluginVersion": "6.5.0-beta1",
       "targets": [
         {
           "format": "time_series",
