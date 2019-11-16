@@ -1016,6 +1016,7 @@
         "endCountdownTime": "2019-10-17T11:46:00.000Z",
         "endText": "00:00:00"
       },
+      "datasource": null,
       "dateSettings": {
         "dateFormat": "YYYY-MM-DD",
         "fontSize": "20px",
