@@ -1015,6 +1015,7 @@
       "type": "table"
     }
   ],
+  "refresh": "5m",
   "schemaVersion": 19,
   "style": "dark",
   "tags": [
