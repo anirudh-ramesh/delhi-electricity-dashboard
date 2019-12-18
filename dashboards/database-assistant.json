@@ -710,6 +710,7 @@
     },
     {
       "columns": [],
+      "datasource": "Delhi SLDC",
       "fontSize": "100%",
       "gridPos": {
         "h": 7,
