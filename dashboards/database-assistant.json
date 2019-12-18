@@ -18,6 +18,7 @@
   "links": [],
   "panels": [
     {
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -30,6 +31,7 @@
     },
     {
       "columns": [],
+      "datasource": null,
       "fontSize": "100%",
       "gridPos": {
         "h": 5,
@@ -147,6 +149,7 @@
       "type": "table"
     },
     {
+      "datasource": null,
       "gridPos": {
         "h": 5,
         "w": 13,
@@ -272,6 +275,7 @@
     },
     {
       "collapsed": false,
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -292,6 +296,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
+      "datasource": null,
       "format": "none",
       "gauge": {
         "maxValue": 100,
@@ -398,6 +403,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
+      "datasource": null,
       "format": "none",
       "gauge": {
         "maxValue": 100,
@@ -504,6 +510,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
+      "datasource": null,
       "format": "none",
       "gauge": {
         "maxValue": 100,
@@ -610,6 +617,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
+      "datasource": null,
       "format": "dateTimeAsIso",
       "gauge": {
         "maxValue": 100,
@@ -934,6 +942,7 @@
     },
     {
       "collapsed": false,
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -947,6 +956,7 @@
     },
     {
       "columns": [],
+      "datasource": null,
       "fontSize": "100%",
       "gridPos": {
         "h": 9,
