@@ -1114,6 +1114,12 @@
       },
       "lines": true,
       "linewidth": 1,
+      "links": [
+        {
+          "title": "States' Load - Time",
+          "url": "/d/R384TZ8Wz/states-load-time"
+        }
+      ],
       "nullPointMode": "null",
       "options": {
         "dataLinks": []
