@@ -72,7 +72,7 @@
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "SELECT *\nFROM crosstab_8states($$\n  SELECT\n    edata.states.\"timestamp\" AS \"time\",\n    metadata.states.\"stateName\",\n    edata.states.\"power\"\n  FROM\n    edata.states\n  INNER JOIN metadata.states ON metadata.states.\"serialNumber\" = edata.states.\"unitNumber\"\n  WHERE\n    $__timeFilter(edata.states.\"timestamp\")\n  ORDER BY 1 DESC, 2 ASC\n  $$)",
+          "rawSql": "SELECT *\nFROM crosstab_8states($$\n  SELECT\n    edata.states.\"timestamp\" AS \"time\",\n    metadata.states.\"stateName\",\n    edata.states.\"power\"\n  FROM\n    edata.states\n  INNER JOIN metadata.states ON metadata.states.\"serialNumber\" = edata.states.\"unitNumber\"\n  WHERE\n    $__timeFilter(edata.states.\"timestamp\")\n  ORDER BY edata.states.\"timestamp\" DESC, edata.states.\"unitNumber\" ASC\n  $$)",
           "refId": "A",
           "select": [
             [
