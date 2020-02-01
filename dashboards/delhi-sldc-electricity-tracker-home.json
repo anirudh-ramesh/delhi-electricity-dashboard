@@ -51,50 +51,56 @@
             "last"
           ],
           "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
             "decimals": 2,
             "mappings": [],
             "max": 50.2,
             "min": 49.5,
-            "thresholds": [
-              {
-                "color": "rgb(0, 0, 0)",
-                "value": null
-              },
-              {
-                "color": "dark-red",
-                "value": 49.5
-              },
-              {
-                "color": "dark-yellow",
-                "value": 49.6
-              },
-              {
-                "color": "dark-green",
-                "value": 49.75
-              },
-              {
-                "color": "dark-yellow",
-                "value": 49.95
-              },
-              {
-                "color": "dark-red",
-                "value": 50.1
-              },
-              {
-                "color": "rgb(0, 0, 0)",
-                "value": 50.2
-              }
-            ],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "rgb(0, 0, 0)",
+                  "value": null
+                },
+                {
+                  "color": "dark-red",
+                  "value": 49.5
+                },
+                {
+                  "color": "dark-yellow",
+                  "value": 49.6
+                },
+                {
+                  "color": "dark-green",
+                  "value": 49.75
+                },
+                {
+                  "color": "dark-yellow",
+                  "value": 49.95
+                },
+                {
+                  "color": "dark-red",
+                  "value": 50.1
+                },
+                {
+                  "color": "rgb(0, 0, 0)",
+                  "value": 50.2
+                }
+              ]
+            },
             "unit": "hertz"
           },
-          "override": {},
+          "overrides": [],
           "values": false
         },
         "orientation": "auto",
         "showThresholdLabels": true,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "6.5.0-beta1",
+      "pluginVersion": "6.6.0",
       "targets": [
         {
           "format": "time_series",
