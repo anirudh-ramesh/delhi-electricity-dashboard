@@ -15,7 +15,17 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 2,
-  "links": [],
+  "links": [
+    {
+      "icon": "external link",
+      "tags": [],
+      "targetBlank": true,
+      "title": "Delhi SLDC's Dashboard",
+      "tooltip": "",
+      "type": "link",
+      "url": "http://delhisldc.org/Redirect.aspx?Loc=0804"
+    }
+  ],
   "panels": [
     {
       "datasource": null,
