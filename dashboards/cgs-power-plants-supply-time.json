@@ -161,7 +161,7 @@
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "SELECT\n  public.round_minutes(MIN(\"timestamp\"), 5) AS \"time\",\n  ROUND(CAST(AVG(power) AS NUMERIC), 2) AS \"Power\"\nFROM edata.plants_centre\nWHERE\n  $__timeFilter(\"timestamp\") AND\n  \"unitNumber\" = '$serialNumber_meta_plants_centre'\nGROUP BY\n  DATE_PART('YEAR', \"timestamp\"),\n  DATE_PART('MONTH', \"timestamp\"),\n  DATE_PART('DAY', \"timestamp\"),\n  DATE_PART('HOUR', \"timestamp\"),\n  FLOOR(DATE_PART('MINUTE', \"timestamp\") / $averaging)\nORDER BY 1",
+          "rawSql": "SELECT\n  public.round_minutes(MIN(\"timestamp\" - '5:30 HOUR'::INTERVAL), 5) AS \"time\",\n  ROUND(CAST(AVG(power) AS NUMERIC), 2) AS \"Power\"\nFROM edata.plants_centre\nWHERE\n  $__timeFilter(\"timestamp\" - '5:30 HOUR'::INTERVAL) AND\n  \"unitNumber\" = '$serialNumber_meta_plants_centre'\nGROUP BY\n  DATE_PART('YEAR', \"timestamp\"),\n  DATE_PART('MONTH', \"timestamp\"),\n  DATE_PART('DAY', \"timestamp\"),\n  DATE_PART('HOUR', \"timestamp\"),\n  FLOOR(DATE_PART('MINUTE', \"timestamp\") / $averaging)\nORDER BY 1",
           "refId": "A",
           "select": [
             [

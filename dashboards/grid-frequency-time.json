@@ -75,7 +75,7 @@
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "SELECT\n  public.round_minutes(MIN(\"timestamp\"), 5) AS \"time\",\n  ROUND(CAST(AVG(frequency) AS NUMERIC), 2) AS \"Grid Frequency\"\nFROM edata.frequency\nWHERE\n  $__timeFilter(\"timestamp\")\nGROUP BY\n  DATE_PART('YEAR', \"timestamp\"),\n  DATE_PART('MONTH', \"timestamp\"),\n  DATE_PART('DAY', \"timestamp\"),\n  DATE_PART('HOUR', \"timestamp\"),\n  FLOOR(DATE_PART('MINUTE', \"timestamp\") / $averaging)\nORDER BY 1",
+          "rawSql": "SELECT\n  public.round_minutes(MIN(\"timestamp\" - '5:30 HOUR'::INTERVAL), 5) AS \"time\",\n  ROUND(CAST(AVG(frequency) AS NUMERIC), 2) AS \"Grid Frequency\"\nFROM edata.frequency\nWHERE\n  $__timeFilter(\"timestamp\" - '5:30 HOUR'::INTERVAL)\nGROUP BY\n  DATE_PART('YEAR', \"timestamp\"),\n  DATE_PART('MONTH', \"timestamp\"),\n  DATE_PART('DAY', \"timestamp\"),\n  DATE_PART('HOUR', \"timestamp\"),\n  FLOOR(DATE_PART('MINUTE', \"timestamp\") / $averaging)\nORDER BY 1",
           "refId": "A",
           "select": [
             [

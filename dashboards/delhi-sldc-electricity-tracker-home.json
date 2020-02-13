@@ -199,7 +199,7 @@
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "SELECT\n  \"timestamp\" AS \"time\",\n  frequency\nFROM edata.frequency\nWHERE\n  $__timeFilter(\"timestamp\")\nORDER BY 1",
+          "rawSql": "SELECT\n  \"timestamp\" - '5:30 HOUR'::INTERVAL AS \"time\",\n  frequency\nFROM edata.frequency\nWHERE\n  $__timeFilter(\"timestamp\" - '5:30 HOUR'::INTERVAL)\nORDER BY 1",
           "refId": "A",
           "select": [
             [
@@ -1148,7 +1148,7 @@
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "SELECT *\nFROM crosstab_8states($$\n  SELECT\n    edata.states.\"timestamp\" AS \"time\",\n    metadata.states.\"stateName\",\n    edata.states.\"power\"\n  FROM\n    edata.states\n  INNER JOIN metadata.states ON metadata.states.\"serialNumber\" = edata.states.\"unitNumber\"\n  WHERE\n    $__timeFilter(edata.states.\"timestamp\")\n  ORDER BY edata.states.\"timestamp\" DESC, edata.states.\"unitNumber\" ASC\n  $$)",
+          "rawSql": "SELECT *\nFROM crosstab_8states($$\n  SELECT\n    edata.states.\"timestamp\" - '5:30 HOUR'::INTERVAL AS \"time\",\n    metadata.states.\"stateName\",\n    edata.states.\"power\"\n  FROM\n    edata.states\n  INNER JOIN metadata.states ON metadata.states.\"serialNumber\" = edata.states.\"unitNumber\"\n  WHERE\n    $__timeFilter(edata.states.\"timestamp\" - '5:30 HOUR'::INTERVAL)\n  ORDER BY 1 DESC, edata.states.\"unitNumber\" ASC\n  $$)",
           "refId": "A",
           "select": [
             [
