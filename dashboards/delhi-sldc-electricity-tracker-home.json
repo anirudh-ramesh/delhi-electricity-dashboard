@@ -117,7 +117,7 @@
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "SELECT\n  \"timestamp\" AS \"time\",\n  frequency\nFROM edata.frequency\nWHERE\n  $__timeFilter(\"timestamp\")\nORDER BY 1 DESC\nLIMIT 1",
+          "rawSql": "SELECT\n  \"timestamp\" - '5:30 HOUR'::INTERVAL AS \"time\",\n  frequency\nFROM edata.frequency\nWHERE\n  $__timeFilter(\"timestamp\" - '5:30 HOUR'::INTERVAL)\nORDER BY 1 DESC\nLIMIT 1",
           "refId": "A",
           "select": [
             [
