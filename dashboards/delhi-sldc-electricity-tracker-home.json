@@ -110,7 +110,7 @@
         "showThresholdLabels": true,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "6.6.0",
+      "pluginVersion": "6.7.1",
       "targets": [
         {
           "format": "time_series",
