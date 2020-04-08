@@ -34,10 +34,10 @@
       "datasource": "Delhi SLDC",
       "decimals": 2,
       "fill": 1,
-      "fillGradient": 0,
+      "fillGradient": 3,
       "gridPos": {
         "h": 13,
-        "w": 24,
+        "w": 12,
         "x": 0,
         "y": 0
       },
@@ -54,7 +54,7 @@
         "values": true
       },
       "lines": true,
-      "linewidth": 1,
+      "linewidth": 2,
       "nullPointMode": "null",
       "options": {
         "dataLinks": []
@@ -63,7 +63,20 @@
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
-      "seriesOverrides": [],
+      "seriesOverrides": [
+        {
+          "alias": "/Power \\(A:/",
+          "color": "#E0B400"
+        },
+        {
+          "alias": "/Power \\(B:/",
+          "color": "#FFEE52",
+          "dashLength": 7,
+          "dashes": true,
+          "fill": 0,
+          "fillGradient": 0
+        }
+      ],
       "spaceLength": 10,
       "stack": false,
       "steppedLine": true,
@@ -73,7 +86,7 @@
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "SELECT\n  public.round_minutes(MIN(\"timestamp\" - '5:30 HOUR'::INTERVAL), 5) AS \"time\",\n  ROUND(CAST(AVG(power) AS NUMERIC), 2) AS \"Power\"\nFROM edata.discoms\nWHERE\n  $__timeFilter(\"timestamp\" - '5:30 HOUR'::INTERVAL) AND\n  \"unitNumber\" = '$serialNumber_meta_discoms'\nGROUP BY\n  DATE_PART('YEAR', \"timestamp\"),\n  DATE_PART('MONTH', \"timestamp\"),\n  DATE_PART('DAY', \"timestamp\"),\n  DATE_PART('HOUR', \"timestamp\"),\n  FLOOR(DATE_PART('MINUTE', \"timestamp\") / $averaging)\nORDER BY 1",
+          "rawSql": "SELECT\n  public.round_minutes(MIN(\"timestamp\" - '5:30 HOUR'::INTERVAL), 5) AS \"time\",\n  ROUND(CAST(AVG(power) AS NUMERIC), 2) AS \"Power (A: $utilityName_meta_discoms)\"\nFROM edata.discoms\nWHERE\n  $__timeFilter(\"timestamp\" - '5:30 HOUR'::INTERVAL) AND\n  \"unitNumber\" = '$serialNumber_meta_discoms'\nGROUP BY\n  DATE_PART('YEAR', \"timestamp\"),\n  DATE_PART('MONTH', \"timestamp\"),\n  DATE_PART('DAY', \"timestamp\"),\n  DATE_PART('HOUR', \"timestamp\"),\n  FLOOR(DATE_PART('MINUTE', \"timestamp\") / $averaging)\nORDER BY 1",
           "refId": "A",
           "select": [
             [
@@ -103,6 +116,32 @@
                 "'$serialNumber_meta_discoms'"
               ],
               "type": "expression"
+            }
+          ]
+        },
+        {
+          "format": "time_series",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  public.round_minutes(MIN(\"timestamp\" - '5:30 HOUR'::INTERVAL + '$timeshift DAY'::INTERVAL), 5) AS \"time\",\n  ROUND(CAST(AVG(power) AS NUMERIC), 2) AS \"Power (B: $utilityName_meta_discoms, $timeshift day(s) prior)\"\nFROM edata.discoms\nWHERE\n  $__timeFilter(\"timestamp\" - '5:30 HOUR'::INTERVAL + '$timeshift DAY'::INTERVAL) AND\n  \"unitNumber\" = '$serialNumber_meta_discoms'\nGROUP BY\n  DATE_PART('YEAR', \"timestamp\"),\n  DATE_PART('MONTH', \"timestamp\"),\n  DATE_PART('DAY', \"timestamp\"),\n  DATE_PART('HOUR', \"timestamp\"),\n  FLOOR(DATE_PART('MINUTE', \"timestamp\") / $averaging)\nORDER BY 1",
+          "refId": "B",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
             }
           ]
         }
@@ -148,6 +187,380 @@
         "align": false,
         "alignLevel": null
       }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Delhi SLDC",
+      "decimals": 2,
+      "fill": 1,
+      "fillGradient": 3,
+      "gridPos": {
+        "h": 13,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "hiddenSeries": false,
+      "id": 3,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": true,
+        "min": true,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "/Power \\(A:/",
+          "color": "#E0B400"
+        },
+        {
+          "alias": "/Power \\(B:/",
+          "color": "#5794F2",
+          "fill": 0,
+          "fillGradient": 0,
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": true,
+      "targets": [
+        {
+          "format": "time_series",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  public.round_minutes(MIN(\"timestamp\" - '5:30 HOUR'::INTERVAL), 5) AS \"time\",\n  ROUND(CAST(AVG(power) AS NUMERIC), 2) AS \"Power (A: $utilityName_meta_discoms)\"\nFROM edata.discoms\nWHERE\n  $__timeFilter(\"timestamp\" - '5:30 HOUR'::INTERVAL) AND\n  \"unitNumber\" = '$serialNumber_meta_discoms'\nGROUP BY\n  DATE_PART('YEAR', \"timestamp\"),\n  DATE_PART('MONTH', \"timestamp\"),\n  DATE_PART('DAY', \"timestamp\"),\n  DATE_PART('HOUR', \"timestamp\"),\n  FLOOR(DATE_PART('MINUTE', \"timestamp\") / $averaging)\nORDER BY 1",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "power"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "discoms",
+          "timeColumn": "\"timestamp\"",
+          "timeColumnType": "timestamp",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            },
+            {
+              "datatype": "int2",
+              "name": "",
+              "params": [
+                "\"unitNumber\"",
+                "=",
+                "'$serialNumber_meta_discoms'"
+              ],
+              "type": "expression"
+            }
+          ]
+        },
+        {
+          "format": "time_series",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  public.round_minutes(MIN(\"timestamp\" - '5:30 HOUR'::INTERVAL), 5) AS \"time\",\n  ROUND(CAST(AVG(power) AS NUMERIC), 2) AS \"Power (B: $compare_utilityName_meta_discoms)\"\nFROM edata.discoms\nWHERE\n  $__timeFilter(\"timestamp\" - '5:30 HOUR'::INTERVAL) AND\n  \"unitNumber\" = '$compare_serialNumber_meta_discoms'\nGROUP BY\n  DATE_PART('YEAR', \"timestamp\"),\n  DATE_PART('MONTH', \"timestamp\"),\n  DATE_PART('DAY', \"timestamp\"),\n  DATE_PART('HOUR', \"timestamp\"),\n  FLOOR(DATE_PART('MINUTE', \"timestamp\") / $averaging)\nORDER BY 1",
+          "refId": "B",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Load - Time",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": 2,
+          "format": "megwatt",
+          "label": "Load",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "decimals": 2,
+          "format": "megwatt",
+          "label": "Load",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "collapsed": true,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 13
+      },
+      "id": 6,
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "Delhi SLDC",
+          "decimals": 2,
+          "fill": 1,
+          "fillGradient": 3,
+          "gridPos": {
+            "h": 13,
+            "w": 24,
+            "x": 0,
+            "y": 14
+          },
+          "hiddenSeries": false,
+          "id": 4,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "max": true,
+            "min": true,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "nullPointMode": "null",
+          "options": {
+            "dataLinks": []
+          },
+          "percentage": false,
+          "pointradius": 2,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [
+            {
+              "alias": "/Power \\(A:/",
+              "color": "#E0B400"
+            },
+            {
+              "alias": "/Power \\(B:/",
+              "color": "#5794F2",
+              "fill": 0,
+              "fillGradient": 0,
+              "yaxis": 2
+            },
+            {
+              "alias": "/Power \\(C:/",
+              "color": "#FFEE52",
+              "dashLength": 7,
+              "dashes": true,
+              "fill": 0,
+              "fillGradient": 0,
+              "yaxis": 1
+            }
+          ],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": true,
+          "targets": [
+            {
+              "format": "time_series",
+              "group": [],
+              "metricColumn": "none",
+              "rawQuery": true,
+              "rawSql": "SELECT\n  public.round_minutes(MIN(\"timestamp\" - '5:30 HOUR'::INTERVAL), 5) AS \"time\",\n  ROUND(CAST(AVG(power) AS NUMERIC), 2) AS \"Power (A: $utilityName_meta_discoms)\"\nFROM edata.discoms\nWHERE\n  $__timeFilter(\"timestamp\" - '5:30 HOUR'::INTERVAL) AND\n  \"unitNumber\" = '$serialNumber_meta_discoms'\nGROUP BY\n  DATE_PART('YEAR', \"timestamp\"),\n  DATE_PART('MONTH', \"timestamp\"),\n  DATE_PART('DAY', \"timestamp\"),\n  DATE_PART('HOUR', \"timestamp\"),\n  FLOOR(DATE_PART('MINUTE', \"timestamp\") / $averaging)\nORDER BY 1",
+              "refId": "A",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "power"
+                    ],
+                    "type": "column"
+                  }
+                ]
+              ],
+              "table": "discoms",
+              "timeColumn": "\"timestamp\"",
+              "timeColumnType": "timestamp",
+              "where": [
+                {
+                  "name": "$__timeFilter",
+                  "params": [],
+                  "type": "macro"
+                },
+                {
+                  "datatype": "int2",
+                  "name": "",
+                  "params": [
+                    "\"unitNumber\"",
+                    "=",
+                    "'$serialNumber_meta_discoms'"
+                  ],
+                  "type": "expression"
+                }
+              ]
+            },
+            {
+              "format": "time_series",
+              "group": [],
+              "metricColumn": "none",
+              "rawQuery": true,
+              "rawSql": "SELECT\n  public.round_minutes(MIN(\"timestamp\" - '5:30 HOUR'::INTERVAL), 5) AS \"time\",\n  ROUND(CAST(AVG(power) AS NUMERIC), 2) AS \"Power (B: $compare_utilityName_meta_discoms)\"\nFROM edata.discoms\nWHERE\n  $__timeFilter(\"timestamp\" - '5:30 HOUR'::INTERVAL) AND\n  \"unitNumber\" = '$compare_serialNumber_meta_discoms'\nGROUP BY\n  DATE_PART('YEAR', \"timestamp\"),\n  DATE_PART('MONTH', \"timestamp\"),\n  DATE_PART('DAY', \"timestamp\"),\n  DATE_PART('HOUR', \"timestamp\"),\n  FLOOR(DATE_PART('MINUTE', \"timestamp\") / $averaging)\nORDER BY 1",
+              "refId": "B",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "column"
+                  }
+                ]
+              ],
+              "timeColumn": "time",
+              "where": [
+                {
+                  "name": "$__timeFilter",
+                  "params": [],
+                  "type": "macro"
+                }
+              ]
+            },
+            {
+              "format": "time_series",
+              "group": [],
+              "metricColumn": "none",
+              "rawQuery": true,
+              "rawSql": "SELECT\n  public.round_minutes(MIN(\"timestamp\" - '5:30 HOUR'::INTERVAL + '$timeshift DAY'::INTERVAL), 5) AS \"time\",\n  ROUND(CAST(AVG(power) AS NUMERIC), 2) AS \"Power (C: $utilityName_meta_discoms, $timeshift day(s) prior)\"\nFROM edata.discoms\nWHERE\n  $__timeFilter(\"timestamp\" - '5:30 HOUR'::INTERVAL + '$timeshift DAY'::INTERVAL) AND\n  \"unitNumber\" = '$serialNumber_meta_discoms'\nGROUP BY\n  DATE_PART('YEAR', \"timestamp\"),\n  DATE_PART('MONTH', \"timestamp\"),\n  DATE_PART('DAY', \"timestamp\"),\n  DATE_PART('HOUR', \"timestamp\"),\n  FLOOR(DATE_PART('MINUTE', \"timestamp\") / $averaging)\nORDER BY 1",
+              "refId": "C",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "column"
+                  }
+                ]
+              ],
+              "timeColumn": "time",
+              "where": [
+                {
+                  "name": "$__timeFilter",
+                  "params": [],
+                  "type": "macro"
+                }
+              ]
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "Load - Time",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "decimals": 2,
+              "format": "megwatt",
+              "label": "Load",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "decimals": 2,
+              "format": "megwatt",
+              "label": "Load",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        }
+      ],
+      "title": "View combined plot",
+      "type": "row"
     }
   ],
   "schemaVersion": 22,
@@ -165,7 +578,7 @@
       {
         "allValue": null,
         "current": {
-          "tags": [],
+          "selected": true,
           "text": "New Delhi Municipal Council",
           "value": "New Delhi Municipal Council"
         },
@@ -218,7 +631,7 @@
       {
         "allValue": null,
         "current": {
-          "tags": [],
+          "selected": true,
           "text": "10",
           "value": "10"
         },
@@ -262,6 +675,127 @@
         "query": "5,10,15,20,30,60",
         "skipUrlSync": false,
         "type": "custom"
+      },
+      {
+        "allValue": null,
+        "current": {
+          "selected": true,
+          "text": "7",
+          "value": "7"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "label": "Overlay Past Data (days)",
+        "multi": false,
+        "name": "timeshift",
+        "options": [
+          {
+            "selected": false,
+            "text": "1",
+            "value": "1"
+          },
+          {
+            "selected": true,
+            "text": "7",
+            "value": "7"
+          },
+          {
+            "selected": false,
+            "text": "10",
+            "value": "10"
+          },
+          {
+            "selected": false,
+            "text": "14",
+            "value": "14"
+          },
+          {
+            "selected": false,
+            "text": "15",
+            "value": "15"
+          },
+          {
+            "selected": false,
+            "text": "28",
+            "value": "28"
+          },
+          {
+            "selected": false,
+            "text": "30",
+            "value": "30"
+          },
+          {
+            "selected": false,
+            "text": "45",
+            "value": "45"
+          },
+          {
+            "selected": false,
+            "text": "60",
+            "value": "60"
+          },
+          {
+            "selected": false,
+            "text": "90",
+            "value": "90"
+          }
+        ],
+        "query": "1,7,10,14,15,28,30,45,60,90",
+        "skipUrlSync": false,
+        "type": "custom"
+      },
+      {
+        "allValue": null,
+        "current": {
+          "selected": true,
+          "text": "BSES Rajdhani Power Limited",
+          "value": "BSES Rajdhani Power Limited"
+        },
+        "datasource": "Delhi SLDC",
+        "definition": "SELECT \"utilityName\" FROM metadata.discoms WHERE \"utilityName\" != '$utilityName_meta_discoms';",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
+        "label": "Compare Utility",
+        "multi": false,
+        "name": "compare_utilityName_meta_discoms",
+        "options": [],
+        "query": "SELECT \"utilityName\" FROM metadata.discoms WHERE \"utilityName\" != '$utilityName_meta_discoms';",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {
+          "text": "1",
+          "value": "1"
+        },
+        "datasource": "Delhi SLDC",
+        "definition": "SELECT \"serialNumber\" FROM metadata.discoms WHERE \"utilityName\" = '$compare_utilityName_meta_discoms';",
+        "hide": 2,
+        "includeAll": false,
+        "index": -1,
+        "label": null,
+        "multi": false,
+        "name": "compare_serialNumber_meta_discoms",
+        "options": [],
+        "query": "SELECT \"serialNumber\" FROM metadata.discoms WHERE \"utilityName\" = '$compare_utilityName_meta_discoms';",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
       }
     ]
   },
