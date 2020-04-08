@@ -285,5 +285,8 @@
   },
   "timezone": "",
   "title": "Substations' Load - Time",
-  "uid": "MX8MYooWk"
+  "uid": "MX8MYooWk",
+  "variables": {
+    "list": []
+  }
 }

@@ -283,5 +283,8 @@
   },
   "timezone": "",
   "title": "Electricity Import Points' Power - Time",
-  "uid": "Bmh1yooWz"
+  "uid": "Bmh1yooWz",
+  "variables": {
+    "list": []
+  }
 }

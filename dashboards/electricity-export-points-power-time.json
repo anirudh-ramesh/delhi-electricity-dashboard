@@ -283,5 +283,8 @@
   },
   "timezone": "",
   "title": "Electricity Export Points' Power - Time",
-  "uid": "mxvpyoTZz"
+  "uid": "mxvpyoTZz",
+  "variables": {
+    "list": []
+  }
 }

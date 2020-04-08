@@ -1231,5 +1231,8 @@
   },
   "timezone": "",
   "title": "Delhi SLDC Electricity Tracker - Home",
-  "uid": "WWoTey5Wz"
+  "uid": "WWoTey5Wz",
+  "variables": {
+    "list": []
+  }
 }

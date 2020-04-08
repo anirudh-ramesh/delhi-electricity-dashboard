@@ -371,5 +371,8 @@
   },
   "timezone": "",
   "title": "CGS Power Plants' Supply - Time",
-  "uid": "zrgyyTTZk"
+  "uid": "zrgyyTTZk",
+  "variables": {
+    "list": []
+  }
 }

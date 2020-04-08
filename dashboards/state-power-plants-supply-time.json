@@ -284,5 +284,8 @@
   },
   "timezone": "",
   "title": "State Power Plants' Supply - Time",
-  "uid": "-7f-yoTWz"
+  "uid": "-7f-yoTWz",
+  "variables": {
+    "list": []
+  }
 }

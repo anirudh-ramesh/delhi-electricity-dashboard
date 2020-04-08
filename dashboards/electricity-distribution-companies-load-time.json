@@ -285,5 +285,8 @@
   },
   "timezone": "",
   "title": "Electricity Distribution Companies' Load - Time",
-  "uid": "IyZ-0ToWz"
+  "uid": "IyZ-0ToWz",
+  "variables": {
+    "list": []
+  }
 }

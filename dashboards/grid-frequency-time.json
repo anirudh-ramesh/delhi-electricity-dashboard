@@ -256,5 +256,8 @@
   },
   "timezone": "",
   "title": "Grid Frequency - Time",
-  "uid": "4nRJoTTZk"
+  "uid": "4nRJoTTZk",
+  "variables": {
+    "list": []
+  }
 }

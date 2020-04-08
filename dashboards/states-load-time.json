@@ -257,5 +257,8 @@
   },
   "timezone": "",
   "title": "States' Load - Time",
-  "uid": "R384TZ8Wz"
+  "uid": "R384TZ8Wz",
+  "variables": {
+    "list": []
+  }
 }
